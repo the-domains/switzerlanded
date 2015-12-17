@@ -1,7 +1,7 @@
 name: Switzerlanded
 favicon: null
-layout_spectrum: 0.30180352670140564
-typography_spectrum: 0.6300591789186001
+layout_spectrum: 0.29184
+typography_spectrum: 0.28759
 title: Switzerlanded
 cta:
   domain: null
@@ -17,13 +17,13 @@ opengraph:
   appId: null
 color:
   brandColors:
-    - '#FF6700'
-    - '#EBEBEB'
-    - '#C0C0C0'
-    - '#3A6EA5'
-    - '#004E98'
+    - '#ffffff'
+    - '#ff3618'
+    - '#010101'
+    - '#eab276'
+    - '#424242'
   brandStrength: 0.9998350297100842
-  lightness: 0.1086003603413701
+  lightness: 0.625
   saturation: 0.6681494743097574
-  rhythmicContrast: 0.8903054599650204
+  rhythmicContrast: 0.75
 purpose: []
