@@ -2,14 +2,20 @@
     <channel>
         <title><![CDATA[Switzerlanded]]></title>
         <description><![CDATA[Switzerlanded]]></description>
-        <link>http://github.com/dylang/node-rss</link>
+        <link>https://thegrid.ai/switzerlanded/</link>
         <generator>The Grid</generator>
-        <lastBuildDate>Thu, 17 Dec 2015 17:27:55 GMT</lastBuildDate>
-        <atom:link href="undefinedrss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sat, 09 Jan 2016 14:42:42 GMT</lastBuildDate>
+        <atom:link href="https://thegrid.ai/switzerlanded/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <link>https://thegrid.ai/switzerlanded/10909ed3-5ece-4324-b795-cb04ee08c3be/index.html</link>
+            <guid isPermaLink="false">10909ed3-5ece-4324-b795-cb04ee08c3be</guid>
+            <pubDate>Sat, 09 Jan 2016 14:42:30 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[No title]]></title>
             <description><![CDATA[<p>Welcome to Switzerlanded!</p>]]></description>
-            <link>undefined0133bc9d-387b-4bc4-ad2d-7836eeffbe1a/index.html</link>
+            <link>https://thegrid.ai/switzerlanded/0133bc9d-387b-4bc4-ad2d-7836eeffbe1a/index.html</link>
             <guid isPermaLink="false">0133bc9d-387b-4bc4-ad2d-7836eeffbe1a</guid>
             <pubDate>Thu, 17 Dec 2015 17:27:55 GMT</pubDate>
         </item>
