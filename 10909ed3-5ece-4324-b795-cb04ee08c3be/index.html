@@ -1,4 +1,4 @@
-<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Switzerlanded</title><link href="../rss.xml" title="Switzerlanded feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.16.22"><meta name="the-grid-solution" content="85803a97-98d1-47b1-8874-1bdbf2d3bada"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
+<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Switzerlanded</title><link href="../rss.xml" title="Switzerlanded feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.17.3"><meta name="the-grid-solution" content="61a96d86-36f0-4d87-a35c-89402f651e50"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
 @media (min-width: 15.6875em)and (max-width: 15.75em){	html{font-size:3.28125em !important}}
 @media (min-width: 15.8125em)and (max-width: 16.25em){	html{font-size:3.375em !important}}
 @media (min-width: 16.3125em)and (max-width: 16.6875em){html{font-size:3.46875em !important}}
@@ -202,6 +202,14 @@ body {
 }
 .stack {
   z-index: 1;
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+}
+.group,
+.aside,
+.decoration {
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
 }
 picture {
   display: inline-block;
@@ -250,6 +258,9 @@ a:active {
   transition: color 0.1s ease-in, background-color 0.1s ease-out;
   -webkit-transition: color 0.1s ease-in, background-color 0.1s ease-out;
 }
+a.aside {
+  display: inline-block;
+}
 html.exporting a {
   transition: none;
 }
@@ -259,11 +270,21 @@ html.exporting a {
 .media > a {
   display: inline-block;
 }
+.media iframe {
+  transition: 0.3s opacity ease-in;
+  -webkit-transition: 0.3s opacity ease-in;
+}
 h1 a,
 h2 a,
 h3 a {
   font-weight: inherit;
   letter-spacing: inherit;
+}
+a {
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -moz-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .text-decoration {
   -webkit-box-decoration-break: clone;
@@ -277,36 +298,50 @@ h3 a {
   margin-left: 1.5em;
 }
 .decoration {
-  position: relative;
   pointer-events: none;
+}
+.svg {
+  position: relative;
   background-color: currentColor;
 }
-.decoration > svg {
+.svg > svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.decoration.connector > svg {
+.svg.connector > svg {
   width: 109%;
   height: 109%;
   margin-left: -2%;
 }
-.decoration path,
-.decoration ellipse,
-.decoration rect,
-.decoration polygon,
-.decoration circle {
+.svg path,
+.svg ellipse,
+.svg rect,
+.svg polygon,
+.svg circle {
   fill: currentColor;
 }
-.decoration mpath,
-.decoration line,
-.decoration polyline {
+.svg mpath,
+.svg line,
+.svg polyline {
   stroke: currentColor;
 }
-.svg.decoration {
+.svg {
   background-color: transparent;
+}
+.revealed .play.svg:after {
+  display: block;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: -20px;
+  background-color: currentColor;
+  content: "";
 }
 .colors-style-aside-border .publisher,
 .colors-style-aside-border .author {
@@ -318,8 +353,11 @@ h3 a {
 .decoration {
   z-index: 3;
 }
-.heading ul {
+.panel ul {
   list-style-type: none !important;
+}
+ul {
+  list-style-position: inside;
 }
 .panel .heading {
   text-transform: uppercase;
@@ -417,8 +455,8 @@ h3 a {
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.164rem; line-height: 0.204rem; height: 0.494rem; width: 4.804rem; position: absolute; top: 0rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 4.324rem; position: absolute; top: 0.094rem; left: 0.244rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 4.084rem; position: absolute; top: 0rem; left: 0.124rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 4.564rem; position: absolute; top: 0.094rem; left: 0.124rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 4.324rem; position: absolute; top: 0rem; left: 0.124rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline { color: rgb(88, 52, 14); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline a:hover { color: rgb(103, 27, 11); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav a { color: rgb(217, 46, 20); }
@@ -427,12 +465,12 @@ h3 a {
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav { background-color: rgb(247, 242, 237); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2{position: relative;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one{position: relative; display: block; width: 4.804rem; height: 4.344rem; top: 0rem; left: 0rem;}
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 4.104rem; width: 4.804rem; position: absolute; top: 0.734rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one{position: relative; display: block; width: 4.804rem; height: 43.724rem; top: 0rem; left: 0rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 4.344rem; width: 4.804rem; position: absolute; top: 0.494rem; left: 0rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006:before{}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual >.text.paragraph p:first-child .first-letter { float: left; font-weight: bold; }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual { text-align: left; }
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.104rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.104rem; width: 4.564rem; position: absolute; top: 0.244rem; left: 0.124rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 4.324rem; position: absolute; top: 0rem; left: 0.124rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(1)>span:nth-of-type(1){font-size: 0.474rem; line-height: 0.414rem; padding-top: 0.054rem; padding-right: 0.054rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
@@ -443,13 +481,11 @@ h3 a {
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:hover { color: rgb(204, 204, 204); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:active { color: rgb(255, 255, 255); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2{position: relative; display: block; width: 4.804rem; height: 6.554rem; top: 0rem; left: 0rem;}
-#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.164rem; line-height: 0.204rem; height: 6.554rem; width: 4.804rem; position: absolute; top: 4.834rem; left: 0rem;}
+#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.164rem; line-height: 0.204rem; height: 6.794rem; width: 4.804rem; position: absolute; top: 4.834rem; left: 0rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad:before{}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual { text-align: left; }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual >.data.list { text-align: left; }
-#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.554rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
+#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.794rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 4.324rem; position: absolute; top: 0rem; left: 0.124rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph>p:nth-of-type(3){margin-top: 0.244rem;}
@@ -466,9 +502,7 @@ h3 a {
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:hover { color: rgb(204, 204, 204); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:active { color: rgb(255, 255, 255); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3{position: relative; display: block; width: 4.804rem; height: 3.864rem; top: 0rem; left: 0rem;}
-#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 3.864rem; width: 4.804rem; position: absolute; top: 11.379999999999999rem; left: 0rem;}
+#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 3.864rem; width: 4.804rem; position: absolute; top: 11.620000000000001rem; left: 0rem;}
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940:before{}
 #u-57055c75-5257-465e-b77a-6613405f1940 >.group.textual { text-align: left; }
 #u-57055c75-5257-465e-b77a-6613405f1940-g-textual#u-57055c75-5257-465e-b77a-6613405f1940-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.864rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
@@ -483,9 +517,7 @@ h3 a {
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:hover { color: rgb(204, 204, 204); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:active { color: rgb(255, 255, 255); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4{position: relative; display: block; width: 4.804rem; height: 5.304rem; top: 0rem; left: 0rem;}
-#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.164rem; line-height: 0.204rem; height: 5.304rem; width: 4.804rem; position: absolute; top: 15.239999999999998rem; left: 0rem;}
+#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.164rem; line-height: 0.204rem; height: 5.304rem; width: 4.804rem; position: absolute; top: 15.484rem; left: 0rem;}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a:before{}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a >.group.textual { text-align: left; }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual#u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 5.304rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
@@ -501,9 +533,7 @@ h3 a {
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:hover { color: rgb(204, 204, 204); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:active { color: rgb(255, 255, 255); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5{position: relative; display: block; width: 4.804rem; height: 6.264rem; top: 0rem; left: 0rem;}
-#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.164rem; line-height: 0.204rem; height: 6.264rem; width: 4.804rem; position: absolute; top: 20.544rem; left: 0rem;}
+#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.164rem; line-height: 0.204rem; height: 6.264rem; width: 4.804rem; position: absolute; top: 20.779999999999998rem; left: 0rem;}
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197:before{}
 #u-f681090d-e278-4ed8-af68-58ac1f941197 >.group.textual { text-align: left; }
 #u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual#u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.264rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
@@ -521,9 +551,7 @@ h3 a {
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:hover { color: rgb(204, 204, 204); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:active { color: rgb(255, 255, 255); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6{position: relative; display: block; width: 4.804rem; height: 3.864rem; top: 0rem; left: 0rem;}
-#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.164rem; line-height: 0.204rem; height: 3.864rem; width: 4.804rem; position: absolute; top: 26.799999999999997rem; left: 0rem;}
+#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.164rem; line-height: 0.204rem; height: 3.864rem; width: 4.804rem; position: absolute; top: 27.044rem; left: 0rem;}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b:before{}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b >.group.textual { text-align: left; }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual#u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.864rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
@@ -536,9 +564,7 @@ h3 a {
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:hover { color: rgb(204, 204, 204); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:active { color: rgb(255, 255, 255); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7{position: relative; display: block; width: 4.804rem; height: 4.824rem; top: 0rem; left: 0rem;}
-#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.164rem; line-height: 0.204rem; height: 4.824rem; width: 4.804rem; position: absolute; top: 30.659999999999997rem; left: 0rem;}
+#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.164rem; line-height: 0.204rem; height: 4.824rem; width: 4.804rem; position: absolute; top: 30.904rem; left: 0rem;}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6:before{}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 >.group.textual { text-align: left; }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.824rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
@@ -554,13 +580,11 @@ h3 a {
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:hover { color: rgb(204, 204, 204); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:active { color: rgb(255, 255, 255); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8{position: relative; display: block; width: 4.804rem; height: 6.074rem; top: 0rem; left: 0rem;}
-#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.164rem; line-height: 0.204rem; height: 6.074rem; width: 4.804rem; position: absolute; top: 35.484rem; left: 0rem;}
+#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.164rem; line-height: 0.204rem; height: 6.314rem; width: 4.804rem; position: absolute; top: 35.724rem; left: 0rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd:before{}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual { text-align: left; }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual >.data.list { text-align: left; }
-#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.074rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
+#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.314rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 4.324rem; position: absolute; top: 0rem; left: 0.124rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph>p:nth-of-type(3){margin-top: 0.244rem;}
@@ -575,9 +599,7 @@ h3 a {
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:hover { color: rgb(204, 204, 204); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:active { color: rgb(255, 255, 255); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9{position: relative; display: block; width: 4.804rem; height: 1.944rem; top: 0rem; left: 0rem;}
-#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 1.464rem; width: 4.804rem; position: absolute; top: 41.554rem; left: 0rem;}
+#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 1.704rem; width: 4.804rem; position: absolute; top: 42.034rem; left: 0rem;}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88:before{}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 >.group.textual { text-align: left; }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 1.464rem; width: 4.564rem; position: absolute; top: 0rem; left: 0.124rem;}
@@ -590,14 +612,14 @@ h3 a {
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 a:hover { color: rgb(204, 204, 204); }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 a:active { color: rgb(255, 255, 255); }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9 { background-color: rgb(245, 217, 187); }
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3-l-one{position: relative; display: block; width: 4.804rem; height: 0.494rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.494rem; width: 4.804rem; position: absolute; top: 43.489999999999995rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.494rem; width: 4.804rem; position: absolute; top: 44.214rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 4.324rem; position: absolute; top: 0.094rem; left: 0.244rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 4.084rem; position: absolute; top: 0rem; left: 0.124rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 4.564rem; position: absolute; top: 0.094rem; left: 0.124rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 4.324rem; position: absolute; top: 0rem; left: 0.124rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline { color: rgb(255, 255, 255); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline a:hover { color: rgb(166, 166, 166); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate a { color: rgb(255, 205, 197); }
@@ -626,8 +648,8 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.164rem; line-height: 0.204rem; height: 0.584rem; width: 7.204rem; position: absolute; top: 0rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 6.484rem; position: absolute; top: 0.134rem; left: 0.364rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 6.124rem; position: absolute; top: 0rem; left: 0.184rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 6.844rem; position: absolute; top: 0.134rem; left: 0.184rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 6.484rem; position: absolute; top: 0rem; left: 0.184rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline { color: rgb(88, 52, 14); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline a:hover { color: rgb(103, 27, 11); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav a { color: rgb(217, 46, 20); }
@@ -636,12 +658,12 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav { background-color: rgb(247, 242, 237); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2{position: relative;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one{position: relative; display: block; width: 7.204rem; height: 3.264rem; top: 0rem; left: 0rem;}
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 2.904rem; width: 7.204rem; position: absolute; top: 0.944rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one{position: relative; display: block; width: 7.204rem; height: 32.974rem; top: 0rem; left: 0rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 3.264rem; width: 7.204rem; position: absolute; top: 0.584rem; left: 0rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006:before{}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual >.text.paragraph p:first-child .first-letter { float: left; font-weight: bold; }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual { text-align: left; }
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 2.904rem; width: 6.844rem; position: absolute; top: 0rem; left: 0.184rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 2.904rem; width: 6.844rem; position: absolute; top: 0.364rem; left: 0.184rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 6.484rem; position: absolute; top: 0rem; left: 0.184rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(1)>span:nth-of-type(1){font-size: 0.474rem; line-height: 0.414rem; padding-top: 0.054rem; padding-right: 0.054rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
@@ -652,8 +674,6 @@ display: none;
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:hover { color: rgb(204, 204, 204); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:active { color: rgb(255, 255, 255); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2{position: relative; display: block; width: 7.204rem; height: 5.384rem; top: 0rem; left: 0rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.164rem; line-height: 0.204rem; height: 5.384rem; width: 7.204rem; position: absolute; top: 3.844rem; left: 0rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad:before{}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual { text-align: left; }
@@ -675,9 +695,7 @@ display: none;
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:hover { color: rgb(204, 204, 204); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:active { color: rgb(255, 255, 255); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3{position: relative; display: block; width: 7.204rem; height: 2.904rem; top: 0rem; left: 0rem;}
-#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 2.904rem; width: 7.204rem; position: absolute; top: 9.219999999999999rem; left: 0rem;}
+#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 2.904rem; width: 7.204rem; position: absolute; top: 9.224rem; left: 0rem;}
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940:before{}
 #u-57055c75-5257-465e-b77a-6613405f1940 >.group.textual { text-align: left; }
 #u-57055c75-5257-465e-b77a-6613405f1940-g-textual#u-57055c75-5257-465e-b77a-6613405f1940-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 2.904rem; width: 6.844rem; position: absolute; top: 0rem; left: 0.184rem;}
@@ -692,8 +710,6 @@ display: none;
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:hover { color: rgb(204, 204, 204); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:active { color: rgb(255, 255, 255); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4{position: relative; display: block; width: 7.204rem; height: 4.104rem; top: 0rem; left: 0rem;}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.164rem; line-height: 0.204rem; height: 4.104rem; width: 7.204rem; position: absolute; top: 12.124rem; left: 0rem;}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a:before{}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a >.group.textual { text-align: left; }
@@ -710,8 +726,6 @@ display: none;
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:hover { color: rgb(204, 204, 204); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:active { color: rgb(255, 255, 255); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5{position: relative; display: block; width: 7.204rem; height: 4.584rem; top: 0rem; left: 0rem;}
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.164rem; line-height: 0.204rem; height: 4.584rem; width: 7.204rem; position: absolute; top: 16.224rem; left: 0rem;}
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197:before{}
 #u-f681090d-e278-4ed8-af68-58ac1f941197 >.group.textual { text-align: left; }
@@ -730,8 +744,6 @@ display: none;
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:hover { color: rgb(204, 204, 204); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:active { color: rgb(255, 255, 255); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6{position: relative; display: block; width: 7.204rem; height: 2.664rem; top: 0rem; left: 0rem;}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.164rem; line-height: 0.204rem; height: 2.664rem; width: 7.204rem; position: absolute; top: 20.799999999999997rem; left: 0rem;}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b:before{}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b >.group.textual { text-align: left; }
@@ -745,8 +757,6 @@ display: none;
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:hover { color: rgb(204, 204, 204); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:active { color: rgb(255, 255, 255); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7{position: relative; display: block; width: 7.204rem; height: 3.624rem; top: 0rem; left: 0rem;}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.164rem; line-height: 0.204rem; height: 3.624rem; width: 7.204rem; position: absolute; top: 23.459999999999997rem; left: 0rem;}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6:before{}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 >.group.textual { text-align: left; }
@@ -763,8 +773,6 @@ display: none;
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:hover { color: rgb(204, 204, 204); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:active { color: rgb(255, 255, 255); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8{position: relative; display: block; width: 7.204rem; height: 4.424rem; top: 0rem; left: 0rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.164rem; line-height: 0.204rem; height: 4.424rem; width: 7.204rem; position: absolute; top: 27.084rem; left: 0rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd:before{}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual { text-align: left; }
@@ -784,9 +792,7 @@ display: none;
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:hover { color: rgb(204, 204, 204); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:active { color: rgb(255, 255, 255); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8 { background-color: rgb(245, 217, 187); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9{position: relative; display: block; width: 7.204rem; height: 1.704rem; top: 0rem; left: 0rem;}
-#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 0.984rem; width: 7.204rem; position: absolute; top: 31.504rem; left: 0rem;}
+#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 1.344rem; width: 7.204rem; position: absolute; top: 31.494rem; left: 0rem;}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88:before{}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 >.group.textual { text-align: left; }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 0.984rem; width: 6.844rem; position: absolute; top: 0rem; left: 0.184rem;}
@@ -799,14 +805,14 @@ display: none;
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 a:hover { color: rgb(204, 204, 204); }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 a:active { color: rgb(255, 255, 255); }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 { background-color: rgb(247, 242, 237); }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9 { background-color: rgb(245, 217, 187); }
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3-l-one{position: relative; display: block; width: 7.204rem; height: 0.584rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.584rem; width: 7.204rem; position: absolute; top: 33.204rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.584rem; width: 7.204rem; position: absolute; top: 33.554rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 6.484rem; position: absolute; top: 0.134rem; left: 0.364rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 6.124rem; position: absolute; top: 0rem; left: 0.184rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 6.844rem; position: absolute; top: 0.134rem; left: 0.184rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 6.484rem; position: absolute; top: 0rem; left: 0.184rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline { color: rgb(255, 255, 255); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline a:hover { color: rgb(166, 166, 166); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate a { color: rgb(255, 205, 197); }
@@ -835,8 +841,8 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.164rem; line-height: 0.204rem; height: 0.664rem; width: 9.604rem; position: absolute; top: 0rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 8.644rem; position: absolute; top: 0.174rem; left: 0.484rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 8.164rem; position: absolute; top: 0rem; left: 0.244rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 9.124rem; position: absolute; top: 0.174rem; left: 0.244rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 8.644rem; position: absolute; top: 0rem; left: 0.244rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline { color: rgb(88, 52, 14); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline a:hover { color: rgb(103, 27, 11); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav a { color: rgb(217, 46, 20); }
@@ -845,12 +851,12 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav { background-color: rgb(247, 242, 237); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2{position: relative;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one{position: relative; display: block; width: 9.604rem; height: 44.424rem; top: 0rem; left: 0rem;}
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 4.224rem; width: 9.604rem; position: absolute; top: 0.664rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one{position: relative; display: block; width: 9.604rem; height: 45.864rem; top: 0rem; left: 0rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 4.704rem; width: 9.604rem; position: absolute; top: 0.664rem; left: 0rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006:before{}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual >.text.paragraph p:first-child .first-letter { float: left; font-weight: bold; }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual { text-align: left; }
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.224rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.224rem; width: 7.684rem; position: absolute; top: 0.484rem; left: 0.964rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 4.324rem; position: absolute; top: 0.064rem; left: 1.684rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(1)>span:nth-of-type(1){font-size: 0.474rem; line-height: 0.414rem; padding-top: 0.054rem; padding-right: 0.054rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
@@ -861,11 +867,11 @@ display: none;
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:hover { color: rgb(204, 204, 204); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:active { color: rgb(255, 255, 255); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 { background-color: rgb(247, 242, 237); }
-#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.164rem; line-height: 0.204rem; height: 6.724rem; width: 9.604rem; position: absolute; top: 4.884rem; left: 0rem;}
+#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.164rem; line-height: 0.204rem; height: 6.964rem; width: 9.604rem; position: absolute; top: 5.364rem; left: 0rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad:before{}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual { text-align: left; }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual >.data.list { text-align: left; }
-#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.724rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
+#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.964rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph#u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 4.324rem; position: absolute; top: 0.064rem; left: 1.684rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph>p:nth-of-type(3){margin-top: 0.244rem;}
@@ -882,7 +888,7 @@ display: none;
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:hover { color: rgb(204, 204, 204); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:active { color: rgb(255, 255, 255); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad { background-color: rgb(247, 242, 237); }
-#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 3.984rem; width: 9.604rem; position: absolute; top: 11.604rem; left: 0rem;}
+#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 3.984rem; width: 9.604rem; position: absolute; top: 12.324rem; left: 0rem;}
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940:before{}
 #u-57055c75-5257-465e-b77a-6613405f1940 >.group.textual { text-align: left; }
 #u-57055c75-5257-465e-b77a-6613405f1940-g-textual#u-57055c75-5257-465e-b77a-6613405f1940-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.984rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
@@ -897,7 +903,7 @@ display: none;
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:hover { color: rgb(204, 204, 204); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:active { color: rgb(255, 255, 255); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 { background-color: rgb(247, 242, 237); }
-#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.164rem; line-height: 0.204rem; height: 5.424rem; width: 9.604rem; position: absolute; top: 15.584rem; left: 0rem;}
+#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.164rem; line-height: 0.204rem; height: 5.424rem; width: 9.604rem; position: absolute; top: 16.304rem; left: 0rem;}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a:before{}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a >.group.textual { text-align: left; }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual#u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 5.424rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
@@ -913,7 +919,7 @@ display: none;
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:hover { color: rgb(204, 204, 204); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:active { color: rgb(255, 255, 255); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a { background-color: rgb(247, 242, 237); }
-#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.164rem; line-height: 0.204rem; height: 6.384rem; width: 9.604rem; position: absolute; top: 21rem; left: 0rem;}
+#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.164rem; line-height: 0.204rem; height: 6.384rem; width: 9.604rem; position: absolute; top: 21.724rem; left: 0rem;}
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197:before{}
 #u-f681090d-e278-4ed8-af68-58ac1f941197 >.group.textual { text-align: left; }
 #u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual#u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.384rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
@@ -931,7 +937,7 @@ display: none;
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:hover { color: rgb(204, 204, 204); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:active { color: rgb(255, 255, 255); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 { background-color: rgb(247, 242, 237); }
-#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.164rem; line-height: 0.204rem; height: 3.984rem; width: 9.604rem; position: absolute; top: 27.384rem; left: 0rem;}
+#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.164rem; line-height: 0.204rem; height: 3.984rem; width: 9.604rem; position: absolute; top: 28.104rem; left: 0rem;}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b:before{}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b >.group.textual { text-align: left; }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual#u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.984rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
@@ -944,7 +950,7 @@ display: none;
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:hover { color: rgb(204, 204, 204); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:active { color: rgb(255, 255, 255); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b { background-color: rgb(247, 242, 237); }
-#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.164rem; line-height: 0.204rem; height: 4.944rem; width: 9.604rem; position: absolute; top: 31.364rem; left: 0rem;}
+#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.164rem; line-height: 0.204rem; height: 4.944rem; width: 9.604rem; position: absolute; top: 32.084rem; left: 0rem;}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6:before{}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 >.group.textual { text-align: left; }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.944rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
@@ -960,11 +966,11 @@ display: none;
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:hover { color: rgb(204, 204, 204); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:active { color: rgb(255, 255, 255); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 { background-color: rgb(247, 242, 237); }
-#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.164rem; line-height: 0.204rem; height: 6.244rem; width: 9.604rem; position: absolute; top: 36.304rem; left: 0rem;}
+#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.164rem; line-height: 0.204rem; height: 6.484rem; width: 9.604rem; position: absolute; top: 37.019999999999996rem; left: 0rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd:before{}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual { text-align: left; }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual >.data.list { text-align: left; }
-#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.244rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
+#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 6.484rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 4.324rem; position: absolute; top: 0.064rem; left: 1.684rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph>p:nth-of-type(3){margin-top: 0.244rem;}
@@ -979,7 +985,7 @@ display: none;
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:hover { color: rgb(204, 204, 204); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:active { color: rgb(255, 255, 255); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd { background-color: rgb(247, 242, 237); }
-#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 1.584rem; width: 9.604rem; position: absolute; top: 42.544rem; left: 0rem;}
+#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 2.064rem; width: 9.604rem; position: absolute; top: 43.504rem; left: 0rem;}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88:before{}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 >.group.textual { text-align: left; }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 1.584rem; width: 7.684rem; position: absolute; top: 0rem; left: 0.964rem;}
@@ -995,11 +1001,11 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3-l-one{position: relative; display: block; width: 9.604rem; height: 0.664rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.664rem; width: 9.604rem; position: absolute; top: 45.084rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.664rem; width: 9.604rem; position: absolute; top: 46.519999999999996rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 8.644rem; position: absolute; top: 0.174rem; left: 0.484rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 8.164rem; position: absolute; top: 0rem; left: 0.244rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 9.124rem; position: absolute; top: 0.174rem; left: 0.244rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 8.644rem; position: absolute; top: 0rem; left: 0.244rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline { color: rgb(255, 255, 255); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline a:hover { color: rgb(166, 166, 166); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate a { color: rgb(255, 205, 197); }
@@ -1028,8 +1034,8 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.164rem; line-height: 0.204rem; height: 0.834rem; width: 14.404rem; position: absolute; top: 0rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 12.964rem; position: absolute; top: 0.264rem; left: 0.724rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 12.244rem; position: absolute; top: 0rem; left: 0.364rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 13.684rem; position: absolute; top: 0.264rem; left: 0.364rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 12.964rem; position: absolute; top: 0rem; left: 0.364rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline { color: rgb(88, 52, 14); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline a:hover { color: rgb(103, 27, 11); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav a { color: rgb(217, 46, 20); }
@@ -1038,12 +1044,12 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav { background-color: rgb(247, 242, 237); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2{position: relative;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one{position: relative; display: block; width: 14.404rem; height: 34.734rem; top: 0rem; left: 0rem;}
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 3.084rem; width: 14.404rem; position: absolute; top: 0.834rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one{position: relative; display: block; width: 14.404rem; height: 36.174rem; top: 0rem; left: 0rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.164rem; line-height: 0.204rem; height: 3.804rem; width: 14.404rem; position: absolute; top: 0.834rem; left: 0rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006:before{}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual >.text.paragraph p:first-child .first-letter { float: left; font-weight: bold; }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual { text-align: left; }
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.084rem; width: 11.524rem; position: absolute; top: 0rem; left: 1.444rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.084rem; width: 11.524rem; position: absolute; top: 0.724rem; left: 1.444rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph{font-size: 0.164rem; line-height: 0.244rem; width: 6.484rem; position: absolute; top: 0.094rem; left: 2.524rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(1)>span:nth-of-type(1){font-size: 0.474rem; line-height: 0.414rem; padding-top: 0.054rem; padding-right: 0.054rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.244rem;}
@@ -1054,7 +1060,7 @@ display: none;
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:hover { color: rgb(204, 204, 204); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:active { color: rgb(255, 255, 255); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 { background-color: rgb(247, 242, 237); }
-#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.164rem; line-height: 0.204rem; height: 5.634rem; width: 14.404rem; position: absolute; top: 3.914rem; left: 0rem;}
+#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.164rem; line-height: 0.204rem; height: 5.634rem; width: 14.404rem; position: absolute; top: 4.634rem; left: 0rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad:before{}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual { text-align: left; }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual >.data.list { text-align: left; }
@@ -1075,7 +1081,7 @@ display: none;
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:hover { color: rgb(204, 204, 204); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:active { color: rgb(255, 255, 255); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad { background-color: rgb(247, 242, 237); }
-#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 3.084rem; width: 14.404rem; position: absolute; top: 9.540000000000001rem; left: 0rem;}
+#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.164rem; line-height: 0.204rem; height: 3.084rem; width: 14.404rem; position: absolute; top: 10.264rem; left: 0rem;}
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940:before{}
 #u-57055c75-5257-465e-b77a-6613405f1940 >.group.textual { text-align: left; }
 #u-57055c75-5257-465e-b77a-6613405f1940-g-textual#u-57055c75-5257-465e-b77a-6613405f1940-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.084rem; width: 11.524rem; position: absolute; top: 0rem; left: 1.444rem;}
@@ -1090,7 +1096,7 @@ display: none;
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:hover { color: rgb(204, 204, 204); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:active { color: rgb(255, 255, 255); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 { background-color: rgb(247, 242, 237); }
-#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.164rem; line-height: 0.204rem; height: 4.284rem; width: 14.404rem; position: absolute; top: 12.624rem; left: 0rem;}
+#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.164rem; line-height: 0.204rem; height: 4.284rem; width: 14.404rem; position: absolute; top: 13.344rem; left: 0rem;}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a:before{}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a >.group.textual { text-align: left; }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual#u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.284rem; width: 11.524rem; position: absolute; top: 0rem; left: 1.444rem;}
@@ -1106,7 +1112,7 @@ display: none;
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:hover { color: rgb(204, 204, 204); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:active { color: rgb(255, 255, 255); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a { background-color: rgb(247, 242, 237); }
-#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.164rem; line-height: 0.204rem; height: 4.764rem; width: 14.404rem; position: absolute; top: 16.904rem; left: 0rem;}
+#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.164rem; line-height: 0.204rem; height: 4.764rem; width: 14.404rem; position: absolute; top: 17.619999999999997rem; left: 0rem;}
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197:before{}
 #u-f681090d-e278-4ed8-af68-58ac1f941197 >.group.textual { text-align: left; }
 #u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual#u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 4.764rem; width: 11.524rem; position: absolute; top: 0rem; left: 1.444rem;}
@@ -1124,7 +1130,7 @@ display: none;
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:hover { color: rgb(204, 204, 204); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:active { color: rgb(255, 255, 255); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 { background-color: rgb(247, 242, 237); }
-#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.164rem; line-height: 0.204rem; height: 2.844rem; width: 14.404rem; position: absolute; top: 21.659999999999997rem; left: 0rem;}
+#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.164rem; line-height: 0.204rem; height: 2.844rem; width: 14.404rem; position: absolute; top: 22.384rem; left: 0rem;}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b:before{}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b >.group.textual { text-align: left; }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual#u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 2.844rem; width: 11.524rem; position: absolute; top: 0rem; left: 1.444rem;}
@@ -1137,7 +1143,7 @@ display: none;
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:hover { color: rgb(204, 204, 204); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:active { color: rgb(255, 255, 255); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b { background-color: rgb(247, 242, 237); }
-#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.164rem; line-height: 0.204rem; height: 3.804rem; width: 14.404rem; position: absolute; top: 24.504rem; left: 0rem;}
+#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.164rem; line-height: 0.204rem; height: 3.804rem; width: 14.404rem; position: absolute; top: 25.224rem; left: 0rem;}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6:before{}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 >.group.textual { text-align: left; }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.804rem; width: 11.524rem; position: absolute; top: 0rem; left: 1.444rem;}
@@ -1153,7 +1159,7 @@ display: none;
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:hover { color: rgb(204, 204, 204); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:active { color: rgb(255, 255, 255); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 { background-color: rgb(247, 242, 237); }
-#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.164rem; line-height: 0.204rem; height: 4.674rem; width: 14.404rem; position: absolute; top: 28.299999999999997rem; left: 0rem;}
+#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.164rem; line-height: 0.204rem; height: 4.674rem; width: 14.404rem; position: absolute; top: 29.024rem; left: 0rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd:before{}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual { text-align: left; }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual >.data.list { text-align: left; }
@@ -1172,7 +1178,7 @@ display: none;
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:hover { color: rgb(204, 204, 204); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:active { color: rgb(255, 255, 255); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd { background-color: rgb(247, 242, 237); }
-#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 1.164rem; width: 14.404rem; position: absolute; top: 32.964rem; left: 0rem;}
+#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.164rem; line-height: 0.204rem; height: 1.884rem; width: 14.404rem; position: absolute; top: 33.684rem; left: 0rem;}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88:before{}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 >.group.textual { text-align: left; }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 1.164rem; width: 11.524rem; position: absolute; top: 0rem; left: 1.444rem;}
@@ -1188,11 +1194,11 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3-l-one{position: relative; display: block; width: 14.404rem; height: 0.834rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.834rem; width: 14.404rem; position: absolute; top: 35.559999999999995rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.164rem; line-height: 0.204rem; height: 0.834rem; width: 14.404rem; position: absolute; top: 37rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 12.964rem; position: absolute; top: 0.264rem; left: 0.724rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 12.244rem; position: absolute; top: 0rem; left: 0.364rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.164rem; line-height: 0.244rem; height: 0.324rem; width: 13.684rem; position: absolute; top: 0.264rem; left: 0.364rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.244rem; line-height: 0.324rem; width: 12.964rem; position: absolute; top: 0rem; left: 0.364rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline { color: rgb(255, 255, 255); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline a:hover { color: rgb(166, 166, 166); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate a { color: rgb(255, 205, 197); }
@@ -1218,11 +1224,11 @@ display: none;
 #page-fac2a942-b6c7-4c55-a12d-189cf7c07f07#page-fac2a942-b6c7-4c55-a12d-189cf7c07f07{width: 17.994rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one{position: relative; display: block; width: 17.994rem; height: 1.024rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.204rem; line-height: 0.254rem; height: 1.024rem; width: 18rem; position: absolute; top: 0rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.204rem; line-height: 0.254rem; height: 1.024rem; width: 17.994rem; position: absolute; top: 0rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.204rem; line-height: 0.304rem; height: 0.394rem; width: 16.204rem; position: absolute; top: 0.324rem; left: 0.904rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.304rem; line-height: 0.394rem; width: 15.304rem; position: absolute; top: 0rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.204rem; line-height: 0.304rem; height: 0.394rem; width: 17.104rem; position: absolute; top: 0.324rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.304rem; line-height: 0.394rem; width: 16.204rem; position: absolute; top: 0rem; left: 0.454rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline { color: rgb(88, 52, 14); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline a:hover { color: rgb(103, 27, 11); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav a { color: rgb(217, 46, 20); }
@@ -1231,12 +1237,12 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav { background-color: rgb(247, 242, 237); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2{position: relative;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one{position: relative; display: block; width: 17.994rem; height: 42.774rem; top: 0rem; left: 0rem;}
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.204rem; line-height: 0.254rem; height: 3.854rem; width: 17.994rem; position: absolute; top: 1.024rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one{position: relative; display: block; width: 17.994rem; height: 44.574rem; top: 0rem; left: 0rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.204rem; line-height: 0.254rem; height: 4.754rem; width: 17.994rem; position: absolute; top: 1.024rem; left: 0rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006:before{}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual >.text.paragraph p:first-child .first-letter { float: left; font-weight: bold; }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual { text-align: left; }
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 3.854rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 3.854rem; width: 14.404rem; position: absolute; top: 0.904rem; left: 1.804rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph{font-size: 0.204rem; line-height: 0.304rem; width: 8.104rem; position: absolute; top: 0.124rem; left: 3.154rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(1)>span:nth-of-type(1){font-size: 0.584rem; line-height: 0.514rem; padding-top: 0.064rem; padding-right: 0.064rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.304rem;}
@@ -1247,7 +1253,7 @@ display: none;
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:hover { color: rgb(204, 204, 204); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:active { color: rgb(255, 255, 255); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 { background-color: rgb(247, 242, 237); }
-#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.204rem; line-height: 0.254rem; height: 7.034rem; width: 17.994rem; position: absolute; top: 4.874rem; left: 0rem;}
+#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.204rem; line-height: 0.254rem; height: 7.034rem; width: 17.994rem; position: absolute; top: 5.774rem; left: 0rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad:before{}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual { text-align: left; }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual >.data.list { text-align: left; }
@@ -1268,7 +1274,7 @@ display: none;
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:hover { color: rgb(204, 204, 204); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:active { color: rgb(255, 255, 255); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad { background-color: rgb(247, 242, 237); }
-#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.204rem; line-height: 0.254rem; height: 3.854rem; width: 17.994rem; position: absolute; top: 11.889999999999999rem; left: 0rem;}
+#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.204rem; line-height: 0.254rem; height: 3.854rem; width: 17.994rem; position: absolute; top: 12.794rem; left: 0rem;}
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940:before{}
 #u-57055c75-5257-465e-b77a-6613405f1940 >.group.textual { text-align: left; }
 #u-57055c75-5257-465e-b77a-6613405f1940-g-textual#u-57055c75-5257-465e-b77a-6613405f1940-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 3.854rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1283,7 +1289,7 @@ display: none;
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:hover { color: rgb(204, 204, 204); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:active { color: rgb(255, 255, 255); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 { background-color: rgb(247, 242, 237); }
-#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.204rem; line-height: 0.254rem; height: 5.054rem; width: 17.994rem; position: absolute; top: 15.744rem; left: 0rem;}
+#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.204rem; line-height: 0.254rem; height: 5.054rem; width: 17.994rem; position: absolute; top: 16.644rem; left: 0rem;}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a:before{}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a >.group.textual { text-align: left; }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual#u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 5.054rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1299,7 +1305,7 @@ display: none;
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:hover { color: rgb(204, 204, 204); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:active { color: rgb(255, 255, 255); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a { background-color: rgb(247, 242, 237); }
-#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.204rem; line-height: 0.254rem; height: 5.954rem; width: 17.994rem; position: absolute; top: 20.784rem; left: 0rem;}
+#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.204rem; line-height: 0.254rem; height: 5.954rem; width: 17.994rem; position: absolute; top: 21.684rem; left: 0rem;}
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197:before{}
 #u-f681090d-e278-4ed8-af68-58ac1f941197 >.group.textual { text-align: left; }
 #u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual#u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 5.954rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1317,7 +1323,7 @@ display: none;
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:hover { color: rgb(204, 204, 204); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:active { color: rgb(255, 255, 255); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 { background-color: rgb(247, 242, 237); }
-#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.204rem; line-height: 0.254rem; height: 3.554rem; width: 17.994rem; position: absolute; top: 26.734rem; left: 0rem;}
+#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.204rem; line-height: 0.254rem; height: 3.554rem; width: 17.994rem; position: absolute; top: 27.634rem; left: 0rem;}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b:before{}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b >.group.textual { text-align: left; }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual#u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 3.554rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1330,7 +1336,7 @@ display: none;
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:hover { color: rgb(204, 204, 204); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:active { color: rgb(255, 255, 255); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b { background-color: rgb(247, 242, 237); }
-#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.204rem; line-height: 0.254rem; height: 4.454rem; width: 17.994rem; position: absolute; top: 30.274rem; left: 0rem;}
+#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.204rem; line-height: 0.254rem; height: 4.454rem; width: 17.994rem; position: absolute; top: 31.169999999999998rem; left: 0rem;}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6:before{}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 >.group.textual { text-align: left; }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 4.454rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1346,7 +1352,7 @@ display: none;
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:hover { color: rgb(204, 204, 204); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:active { color: rgb(255, 255, 255); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 { background-color: rgb(247, 242, 237); }
-#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.204rem; line-height: 0.254rem; height: 5.834rem; width: 17.994rem; position: absolute; top: 34.720000000000006rem; left: 0rem;}
+#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.204rem; line-height: 0.254rem; height: 5.834rem; width: 17.994rem; position: absolute; top: 35.620000000000005rem; left: 0rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd:before{}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual { text-align: left; }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual >.data.list { text-align: left; }
@@ -1365,7 +1371,7 @@ display: none;
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:hover { color: rgb(204, 204, 204); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:active { color: rgb(255, 255, 255); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd { background-color: rgb(247, 242, 237); }
-#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.204rem; line-height: 0.254rem; height: 1.454rem; width: 17.994rem; position: absolute; top: 40.540000000000006rem; left: 0rem;}
+#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.204rem; line-height: 0.254rem; height: 2.354rem; width: 17.994rem; position: absolute; top: 41.440000000000005rem; left: 0rem;}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88:before{}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 >.group.textual { text-align: left; }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 1.454rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1381,11 +1387,11 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3-l-one{position: relative; display: block; width: 17.994rem; height: 1.024rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.204rem; line-height: 0.254rem; height: 1.024rem; width: 18rem; position: absolute; top: 43.790000000000006rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.204rem; line-height: 0.254rem; height: 1.024rem; width: 17.994rem; position: absolute; top: 45.594rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.204rem; line-height: 0.304rem; height: 0.394rem; width: 16.204rem; position: absolute; top: 0.324rem; left: 0.904rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.304rem; line-height: 0.394rem; width: 15.304rem; position: absolute; top: 0rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.204rem; line-height: 0.304rem; height: 0.394rem; width: 17.104rem; position: absolute; top: 0.324rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.304rem; line-height: 0.394rem; width: 16.204rem; position: absolute; top: 0rem; left: 0.454rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline { color: rgb(255, 255, 255); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline a:hover { color: rgb(166, 166, 166); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate a { color: rgb(255, 205, 197); }
@@ -1411,11 +1417,11 @@ display: none;
 #page-fac2a942-b6c7-4c55-a12d-189cf7c07f07#page-fac2a942-b6c7-4c55-a12d-189cf7c07f07{width: 18rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one{position: relative; display: block; width: 18rem; height: 0.934rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.154rem; line-height: 0.194rem; height: 0.934rem; width: 18.014rem; position: absolute; top: 0rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav{font-size: 0.154rem; line-height: 0.194rem; height: 0.934rem; width: 18rem; position: absolute; top: 0rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.154rem; line-height: 0.234rem; height: 0.304rem; width: 16.204rem; position: absolute; top: 0.324rem; left: 0.904rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.234rem; line-height: 0.304rem; width: 15.314rem; position: absolute; top: 0rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading{font-size: 0.154rem; line-height: 0.234rem; height: 0.304rem; width: 17.114rem; position: absolute; top: 0.324rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline{font-size: 0.234rem; line-height: 0.304rem; width: 16.204rem; position: absolute; top: 0rem; left: 0.454rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline { color: rgb(88, 52, 14); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav .group.heading > .title.headline a:hover { color: rgb(103, 27, 11); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav a { color: rgb(217, 46, 20); }
@@ -1424,12 +1430,12 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav { background-color: rgb(247, 242, 237); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2{position: relative;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one{position: relative; display: block; width: 18rem; height: 29.904rem; top: 0rem; left: 0rem;}
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.154rem; line-height: 0.194rem; height: 2.324rem; width: 18rem; position: absolute; top: 0.934rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one{position: relative; display: block; width: 18rem; height: 31.704rem; top: 0rem; left: 0rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006{font-size: 0.154rem; line-height: 0.194rem; height: 3.224rem; width: 18rem; position: absolute; top: 0.934rem; left: 0rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006:before{}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual >.text.paragraph p:first-child .first-letter { float: left; font-weight: bold; }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006 >.group.textual { text-align: left; }
-#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 2.324rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
+#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 2.324rem; width: 14.404rem; position: absolute; top: 0.904rem; left: 1.804rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph#u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph{font-size: 0.154rem; line-height: 0.234rem; width: 8.104rem; position: absolute; top: 0.124rem; left: 3.154rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(1)>span:nth-of-type(1){font-size: 0.444rem; line-height: 0.394rem; padding-top: 0.054rem; padding-right: 0.054rem;}
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph>p:nth-of-type(2){margin-top: 0.234rem;}
@@ -1440,7 +1446,7 @@ display: none;
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:hover { color: rgb(204, 204, 204); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 a:active { color: rgb(255, 255, 255); }
 #u-6a5f9573-a45c-408d-adb7-7d668a96f006#u-6a5f9573-a45c-408d-adb7-7d668a96f006 { background-color: rgb(247, 242, 237); }
-#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.154rem; line-height: 0.194rem; height: 4.574rem; width: 18rem; position: absolute; top: 3.254rem; left: 0rem;}
+#u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad{font-size: 0.154rem; line-height: 0.194rem; height: 4.574rem; width: 18rem; position: absolute; top: 4.154rem; left: 0rem;}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad:before{}
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual { text-align: left; }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad >.group.textual >.data.list { text-align: left; }
@@ -1461,7 +1467,7 @@ display: none;
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:hover { color: rgb(204, 204, 204); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad a:active { color: rgb(255, 255, 255); }
 #u-cb5db9b2-08ce-4818-a8db-33c09e535aad#u-cb5db9b2-08ce-4818-a8db-33c09e535aad { background-color: rgb(247, 242, 237); }
-#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.154rem; line-height: 0.194rem; height: 2.554rem; width: 18rem; position: absolute; top: 7.819999999999999rem; left: 0rem;}
+#u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940{font-size: 0.154rem; line-height: 0.194rem; height: 2.554rem; width: 18rem; position: absolute; top: 8.724rem; left: 0rem;}
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940:before{}
 #u-57055c75-5257-465e-b77a-6613405f1940 >.group.textual { text-align: left; }
 #u-57055c75-5257-465e-b77a-6613405f1940-g-textual#u-57055c75-5257-465e-b77a-6613405f1940-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 2.554rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1476,7 +1482,7 @@ display: none;
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:hover { color: rgb(204, 204, 204); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 a:active { color: rgb(255, 255, 255); }
 #u-57055c75-5257-465e-b77a-6613405f1940#u-57055c75-5257-465e-b77a-6613405f1940 { background-color: rgb(247, 242, 237); }
-#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.154rem; line-height: 0.194rem; height: 3.474rem; width: 18rem; position: absolute; top: 10.364rem; left: 0rem;}
+#u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a{font-size: 0.154rem; line-height: 0.194rem; height: 3.474rem; width: 18rem; position: absolute; top: 11.264rem; left: 0rem;}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a:before{}
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a >.group.textual { text-align: left; }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual#u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 3.474rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1492,7 +1498,7 @@ display: none;
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:hover { color: rgb(204, 204, 204); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a a:active { color: rgb(255, 255, 255); }
 #u-de18b004-3b59-407f-aba3-e5f36f02c51a#u-de18b004-3b59-407f-aba3-e5f36f02c51a { background-color: rgb(247, 242, 237); }
-#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.154rem; line-height: 0.194rem; height: 4.394rem; width: 18rem; position: absolute; top: 13.824rem; left: 0rem;}
+#u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197{font-size: 0.154rem; line-height: 0.194rem; height: 4.394rem; width: 18rem; position: absolute; top: 14.719999999999999rem; left: 0rem;}
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197:before{}
 #u-f681090d-e278-4ed8-af68-58ac1f941197 >.group.textual { text-align: left; }
 #u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual#u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 4.394rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1510,7 +1516,7 @@ display: none;
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:hover { color: rgb(204, 204, 204); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 a:active { color: rgb(255, 255, 255); }
 #u-f681090d-e278-4ed8-af68-58ac1f941197#u-f681090d-e278-4ed8-af68-58ac1f941197 { background-color: rgb(247, 242, 237); }
-#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.154rem; line-height: 0.194rem; height: 2.324rem; width: 18rem; position: absolute; top: 18.214rem; left: 0rem;}
+#u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b{font-size: 0.154rem; line-height: 0.194rem; height: 2.324rem; width: 18rem; position: absolute; top: 19.114rem; left: 0rem;}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b:before{}
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b >.group.textual { text-align: left; }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual#u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 2.324rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1523,7 +1529,7 @@ display: none;
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:hover { color: rgb(204, 204, 204); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b a:active { color: rgb(255, 255, 255); }
 #u-47c88661-1db7-4caa-8371-3ec950f64d8b#u-47c88661-1db7-4caa-8371-3ec950f64d8b { background-color: rgb(247, 242, 237); }
-#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.154rem; line-height: 0.194rem; height: 3.244rem; width: 18rem; position: absolute; top: 20.524rem; left: 0rem;}
+#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6{font-size: 0.154rem; line-height: 0.194rem; height: 3.244rem; width: 18rem; position: absolute; top: 21.419999999999998rem; left: 0rem;}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6:before{}
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 >.group.textual { text-align: left; }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 3.244rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1539,7 +1545,7 @@ display: none;
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:hover { color: rgb(204, 204, 204); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 a:active { color: rgb(255, 255, 255); }
 #u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6#u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6 { background-color: rgb(247, 242, 237); }
-#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.154rem; line-height: 0.194rem; height: 4.114rem; width: 18rem; position: absolute; top: 23.759999999999998rem; left: 0rem;}
+#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd{font-size: 0.154rem; line-height: 0.194rem; height: 4.114rem; width: 18rem; position: absolute; top: 24.664rem; left: 0rem;}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd:before{}
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual { text-align: left; }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd >.group.textual >.data.list { text-align: left; }
@@ -1558,7 +1564,7 @@ display: none;
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:hover { color: rgb(204, 204, 204); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd a:active { color: rgb(255, 255, 255); }
 #u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd#u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd { background-color: rgb(247, 242, 237); }
-#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.154rem; line-height: 0.194rem; height: 1.174rem; width: 18rem; position: absolute; top: 27.864rem; left: 0rem;}
+#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88{font-size: 0.154rem; line-height: 0.194rem; height: 2.074rem; width: 18rem; position: absolute; top: 28.774rem; left: 0rem;}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88:before{}
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88 >.group.textual { text-align: left; }
 #u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual#u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 1.174rem; width: 14.404rem; position: absolute; top: 0rem; left: 1.804rem;}
@@ -1574,11 +1580,11 @@ display: none;
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one { background-color: rgb(245, 217, 187); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3{position: relative;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3-l-one#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3-l-one{position: relative; display: block; width: 18rem; height: 0.934rem; top: 0rem; left: 0rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.154rem; line-height: 0.194rem; height: 0.934rem; width: 18.014rem; position: absolute; top: 30.834rem; left: 0rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate{font-size: 0.154rem; line-height: 0.194rem; height: 0.934rem; width: 18rem; position: absolute; top: 32.634rem; left: 0rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate:before{}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate >.group.heading { text-align: center; }
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.154rem; line-height: 0.234rem; height: 0.304rem; width: 16.204rem; position: absolute; top: 0.324rem; left: 0.904rem;}
-#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.234rem; line-height: 0.304rem; width: 15.314rem; position: absolute; top: 0rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading{font-size: 0.154rem; line-height: 0.234rem; height: 0.304rem; width: 17.114rem; position: absolute; top: 0.324rem; left: 0.454rem;}
+#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline{font-size: 0.234rem; line-height: 0.304rem; width: 16.204rem; position: absolute; top: 0rem; left: 0.454rem;}
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline { color: rgb(255, 255, 255); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate .group.heading > .title.headline a:hover { color: rgb(166, 166, 166); }
 #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate#u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate a { color: rgb(255, 205, 197); }
@@ -1598,7 +1604,7 @@ wbr.w1800{ display: block }
  #u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3 {
 display: none;
 }
-}</style></head><body><div class="layout-system rust mobile" id="page-fac2a942-b6c7-4c55-a12d-189cf7c07f07"><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="article" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_long_paragraph w_long_text w_list w_data w_medium_list w_medium_data w_medium_paragraph w_medium_text layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i first_layout article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-2"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-3"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-4"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-5"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-6"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-7"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-8"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i last_layout article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one-9"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3-l-one"></div><style id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-color">body{background-color: rgba(255, 56, 26, 1)}</style></section><article subject="panel" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_none stack_h_align_center collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_decoration w_headline w_title w_short_headline w_short_title stack heading" itemid="u-page-nav" itemtype="nav" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav"><div kind="group" index="heading" class="group heading group heading" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline"><a class="text-decoration" href="../index.html" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline-a">Switzerlanded</a></h1></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i first_chapter w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="6a5f9573-a45c-408d-adb7-7d668a96f006" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.5" missed="0.5" tag="article" id="u-6a5f9573-a45c-408d-adb7-7d668a96f006"><div kind="group" index="textual" class="group textual group textual" id="u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph"><p><span class="first-letter">H</span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>ow much should you be paid in Switzerland? This is <wbr class="w480 w960"></wbr>often a tough question to <wbr class="w481 w961 w1799"></wbr>answer, because the <wbr class="w480 w960"></wbr>Swiss are <wbr class="w1800"></wbr>notoriously secretive about their salaries. <wbr class="w480 w960"></wbr>Unlike <wbr class="w481 w961 w1799"></wbr>many countries, salary ranges or bands are rarely <wbr class="w480 w960"></wbr>published in <wbr class="w1800"></wbr>job adverts. For many <wbr class="w481 w961 w1799"></wbr>people, this means <wbr class="w480 w960"></wbr>that finding a comparable salary is difficult.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>L</span>ots of people have come to the English Forum to ask <wbr class="w480 w960"></wbr>about salaries. It&#x2019;s very hard to <wbr class="w481 w961 w1799"></wbr>give specific answers, <wbr class="w480 w960"></wbr>because <wbr class="w1800"></wbr>every candidate is different. Even for the same <wbr class="w480 w960"></wbr>job, <wbr class="w481 w961 w1799"></wbr>different salaries may be offered to different <wbr class="w480 w960"></wbr>candidates because <wbr class="w1800"></wbr>they are more/less <wbr class="w481 w961 w1799"></wbr>advanced in their <wbr class="w480 w960"></wbr>careers and may bring different qualities to the job. <wbr class="w480 w960"></wbr>When reading <wbr class="w481 w961"></wbr>this <wbr class="w1799"></wbr>guide, <wbr class="w1800"></wbr>bear in mind that these are <wbr class="w480 w960"></wbr>only broad estimates and that you&#x2019;ll need to <wbr class="w481 w961"></wbr>think <wbr class="w1799"></wbr>about <wbr class="w480 w960"></wbr>your own individual <wbr class="w1800"></wbr>circumstances when determining <wbr class="w480 w960"></wbr>your market worth <wbr class="w481 w961"></wbr>and <wbr class="w1799"></wbr>whether a salary is &#x2018;fair&#x2019; or not.</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_list w_data w_long_paragraph w_long_text w_medium_list w_medium_data stack textual" itemid="cb5db9b2-08ce-4818-a8db-33c09e535aad" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.625" missed="0.375" tag="article" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad"><div kind="group" index="textual" class="group textual group textual" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader text paragraph" specificity="0.25" itemprop="text" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph"><p><span class="first-letter">T</span>here are a number of guidelines published that can give <wbr class="w480 w960"></wbr>you a good feeling for <wbr class="w481 w961"></wbr>overall <wbr class="w1799"></wbr>salaries in Switzerland, and <wbr class="w480 w960 w1800"></wbr>that can help you figure out where you sit.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>H</span>ere is the </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>.</span> The personal wages &#x2018;Salarium&#x2019; is an interactive <wbr class="w480 w960"></wbr>application which allows you to <wbr class="w481 w961"></wbr>obtain <wbr class="w1799"></wbr>for a specific job <wbr class="w480 w960"></wbr>(economic <wbr class="w1800"></wbr>branch, region etc) and for a selection of <wbr class="w480 w960"></wbr>individual <wbr class="w481 w961 w1799"></wbr>characteristics (age, level of education etc.) the <wbr class="w480 w960"></wbr>following salary <wbr class="w1800"></wbr>information: </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>T</span>here is not an exact salary guide for every imaginable <wbr class="w480 w960"></wbr>position, so you may need to <wbr class="w481 w961"></wbr>use <wbr class="w1799"></wbr>these figures to get a <wbr class="w480 w960"></wbr>feeling <wbr class="w1800"></wbr>for salaries overall, then extrapolate to figure out <wbr class="w480 w481 w960 w961"></wbr>where <wbr class="w1799"></wbr>your salary would fit in on the overall scale.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>A</span>s a rule, though, Swiss salaries are generous when <wbr class="w480 w960"></wbr>compared against other <wbr class="w481 w961"></wbr>countries, <wbr class="w1799"></wbr>so you are unlikely to <wbr class="w480 w960"></wbr>find <wbr class="w1800"></wbr>yourself moving to a Swiss position for less <wbr class="w481 w961"></wbr>money <wbr class="w480 w960"></wbr>than <wbr class="w1799"></wbr>you&#x2019;re getting currently.</p></div><ul kind="data" index="list" class="medium medium_list medium_data data list vfld-trailer data list" specificity="0.25" itemprop="list" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-d-list"><ul><li>the gross monthly salary (middle or median value)</li><li><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>the salary dispersion (interquartile range)</li><li><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>factors influencing the salary (table of salary variations <wbr class="w480 w960"></wbr>by region, level of education <wbr class="w481 w961 w1799"></wbr>etc.)</li><li><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>comparison with personal salary data (total salary based <wbr class="w480 w960"></wbr>on the same salary <wbr class="w481 w961 w1799"></wbr>components as the median salary)</li></ul></ul></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="57055c75-5257-465e-b77a-6613405f1940" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.5" missed="0.5" tag="article" id="u-57055c75-5257-465e-b77a-6613405f1940"><div kind="group" index="textual" class="group textual group textual" id="u-57055c75-5257-465e-b77a-6613405f1940-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-57055c75-5257-465e-b77a-6613405f1940-g-textual-t-paragraph"><p><span class="first-letter">M</span>any people relocating to Switzerland come to work with <wbr class="w480 w960"></wbr>the big pharma companies <wbr class="w481 w961"></wbr>in <wbr class="w1799"></wbr>Basel or the banks in <wbr class="w480 w960"></wbr>Zurich. <wbr class="w1800"></wbr>There have been many threads about salaries in <wbr class="w480 w960"></wbr>both <wbr class="w481 w961"></wbr>of <wbr class="w1799"></wbr>these environments:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>J</span>ust as important as negotiating a good salary is knowing <wbr class="w480 w960"></wbr>how much of that salary will <wbr class="w481 w961 w1799"></wbr>end up in your pocket at the <wbr class="w480 w960 w1800"></wbr>end of the month. There are several on-line resources <wbr class="w480 w481 w960 w961"></wbr>that <wbr class="w1799"></wbr>can help you estimate how much tax you&#x2019;ll pay (it <wbr class="w480 w960"></wbr>varies <wbr class="w1800"></wbr>depending on which <wbr class="w481 w961"></wbr>canton <wbr class="w1799"></wbr>you live in) as well as <wbr class="w480 w960"></wbr>other deductions that will be taken from your pay.</p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>(Note: this looks like it is now restricted to Accurity <wbr class="w480 w960"></wbr>customers only)</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>N</span>ote that as a foreigner, you&#x2019;ll pay your tax by </p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="de18b004-3b59-407f-aba3-e5f36f02c51a" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.5" missed="0.5" tag="article" id="u-de18b004-3b59-407f-aba3-e5f36f02c51a"><div kind="group" index="textual" class="group textual group textual" id="u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual-t-paragraph"><p><span class="first-letter">,</span> which means your tax payments will be withheld from <wbr class="w480 w960"></wbr>your paycheque each month. <wbr class="w481 w961"></wbr>In <wbr class="w1799"></wbr>Switzerland, nothing is <wbr class="w480 w960"></wbr>ever <wbr class="w1800"></wbr>straightforward as laws vary from canton to canton, <wbr class="w480 w481 w960 w961"></wbr>but in <wbr class="w1799"></wbr>general, if you earn less than CHF120&#x2019;000 a year, <wbr class="w480 w960"></wbr>you&#x2019;ll <wbr class="w1800"></wbr>pay your tax by <wbr class="w481 w961"></wbr>quellensteuer <wbr class="w1799"></wbr>and need to do <wbr class="w480 w960"></wbr>nothing further. If you earn more than CHF120&#x2019;000 a <wbr class="w480 w481 w960 w961"></wbr>year, you&#x2019;ll still <wbr class="w1800"></wbr>pay <wbr class="w1799"></wbr>your tax by quellensteuer, but you&#x2019;ll <wbr class="w480 w960"></wbr>also need to file a tax return <wbr class="w481 w961"></wbr>at the end of the year. <wbr class="w1799"></wbr>If <wbr class="w480 w960"></wbr>there&#x2019;s a balance owing <wbr class="w1800"></wbr>either way, you&#x2019;ll either need to <wbr class="w480 w960"></wbr>pay it <wbr class="w481 w961"></wbr>or claim a tax refund.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Y</span>ou can find your Quellensteuer rates here:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>n addition to the tax that is withheld, there are <wbr class="w480 w960"></wbr>numerous other charges that will <wbr class="w481 w961"></wbr>come <wbr class="w1799"></wbr>out of your pay.</p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Here is a sample payslip:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>M</span>onthly Employee Deductions ItemBase Rate Deduction <wbr class="w480 w960"></wbr>State Pension <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>(AHV)________________6'500.00_________5.05%_____CH F <wbr class="w480 w960"></wbr>328.25</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="f681090d-e278-4ed8-af68-58ac1f941197" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.5" missed="0.5" tag="article" id="u-f681090d-e278-4ed8-af68-58ac1f941197"><div kind="group" index="textual" class="group textual group textual" id="u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual-t-paragraph"><p><span class="first-letter">U</span>nemployment <wbr class="w480 w960"></wbr>(ALV)_____________________________________________ <wbr class="w480 w960"></wbr>_________________ <wbr class="w481 w961 w1799 w1800"></wbr>6'500.00__________1.0%______CHF 65.00</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>C</span>ompany Pension <wbr class="w480 w960"></wbr>(BVG)_____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>_______________4'505.00____________________CHF 243.95</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>A</span>ccident Insurance <wbr class="w480 w960"></wbr>(UVG)_____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>______________6'500.00________0.76%______CHF 49.40</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>S</span>ickpay Insurance <wbr class="w480 w960"></wbr>(KTG)_____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>_______________6'500.00________1.07%______CHF 69.55</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>ncome tax at <wbr class="w480 w960"></wbr>source____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>___________________6'500.00_______13.56%______CHF 881.40</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>N</span>et Monthly <wbr class="w480 w960"></wbr>Salary____________________________________________ <wbr class="w480 w481 w960 w961 w1799"></wbr>_____________________________________________</p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Here are some more threads that explain the various <wbr class="w480 w960"></wbr>charges on your payslip:</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="47c88661-1db7-4caa-8371-3ec950f64d8b" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.5" missed="0.5" tag="article" id="u-47c88661-1db7-4caa-8371-3ec950f64d8b"><div kind="group" index="textual" class="group textual group textual" id="u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual-t-paragraph"><p><span class="first-letter">F</span>or most expats working in Switzerland, the only tax <wbr class="w480 w960"></wbr>you&#x2019;ll end up paying as a full-time <wbr class="w481 w961 w1799"></wbr>resident in Switzerland <wbr class="w480 w960"></wbr>is <wbr class="w1800"></wbr>Swiss tax. Americans, on the other hand, remain liable <wbr class="w480 w960"></wbr>for <wbr class="w481 w961"></wbr>US <wbr class="w1799"></wbr>tax regardless of where they live in the world. Be <wbr class="w480 w960"></wbr>sure <wbr class="w1800"></wbr>to calculate the impact of US <wbr class="w481 w961 w1799"></wbr>taxes on your take-<wbr class="w480 w960"></wbr>home pay. The best guide for understanding US taxation <wbr class="w480 w960"></wbr>of <wbr class="w481 w961 w1799"></wbr>American <wbr class="w1800"></wbr>expats is here:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>W</span>hen evaluating your package, you also need to <wbr class="w480 w960"></wbr>consider any other benefits you are <wbr class="w481 w961 w1799"></wbr>being offered. Many <wbr class="w480 w960"></wbr>of the <wbr class="w1800"></wbr>bigger companies in Switzerland will provide you <wbr class="w480 w960"></wbr>with <wbr class="w481 w961 w1799"></wbr>relocation assistance, including temporary housing, <wbr class="w480 w960"></wbr>moving <wbr class="w1800"></wbr>expenses, language <wbr class="w481 w961 w1799"></wbr>training. For candidates at <wbr class="w480 w960"></wbr>senior management levels, you may also find that you&#x2019;re <wbr class="w480 w481 w960 w961 w1799"></wbr>offered <wbr class="w1800"></wbr>schooling for your children at one of the <wbr class="w480 w960"></wbr>international schools.</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.5" missed="0.5" tag="article" id="u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6"><div kind="group" index="textual" class="group textual group textual" id="u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual-t-paragraph"><p><span class="first-letter">O</span>nce you&#x2019;ve figured out what a reasonable salary is for <wbr class="w480 w960"></wbr>your role, education, and <wbr class="w481 w961 w1799"></wbr>experience, and once you&#x2019;ve <wbr class="w480 w960 w1800"></wbr>worked out how much of that salary you&#x2019;ll be taking <wbr class="w480 w481 w960 w961"></wbr>home <wbr class="w1799"></wbr>after you&#x2019;ve paid your taxes, it&#x2019;s time to decide <wbr class="w480 w960"></wbr>whether <wbr class="w1800"></wbr>you&#x2019;ll have enough to <wbr class="w481 w961"></wbr>live on.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>A</span>s a starting point, the </p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>is CHF109,236. So you can base your initial assumptions <wbr class="w480 w960"></wbr>on that. </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>T</span>here are countless threads about the cost of living in <wbr class="w480 w960"></wbr>Switzerland, but it basically <wbr class="w481 w961"></wbr>boils <wbr class="w1799"></wbr>down to this: &#x201C;It <wbr class="w480 w960"></wbr>depends.&#x201D;</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>t&#x2019;s very difficult to make direct comparisons about cost-<wbr class="w480 w960"></wbr>of-living. If you&#x2019;re coming <wbr class="w481 w961"></wbr>from <wbr class="w1799"></wbr>a 3&#x2019;000sq ft house in <wbr class="w480 w960"></wbr>Texas, <wbr class="w1800"></wbr>you&#x2019;re unlikely to be able to afford something <wbr class="w480 w960"></wbr>similar <wbr class="w481 w961"></wbr>in <wbr class="w1799"></wbr>Switzerland, because very few people have a <wbr class="w480 w960"></wbr>3&#x2019;000 sq ft <wbr class="w1800"></wbr>home.</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_list w_data w_long_paragraph w_long_text w_medium_list w_medium_data stack textual" itemid="39ec17a3-b16c-4fa8-a4f0-63d15db067cd" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.625" missed="0.375" tag="article" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd"><div kind="group" index="textual" class="group textual group textual" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader text paragraph" specificity="0.25" itemprop="text" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph"><p><span class="first-letter">A</span> better question to ask yourself is &#x201C;could my salary buy <wbr class="w480 w960"></wbr>the sort of lifestyle I would <wbr class="w481 w961"></wbr>like <wbr class="w1799"></wbr>to live while living in <wbr class="w480 w960 w1800"></wbr>Switzerland, even if that&#x2019;s very different from what I&#x2019;m <wbr class="w480 w960"></wbr>living <wbr class="w481 w961 w1799"></wbr>today?&#x201D; Life is always a series of trade-offs, and <wbr class="w480 w960"></wbr>you&#x2019;ll <wbr class="w1800"></wbr>need to decide which trade-offs <wbr class="w481 w961 w1799"></wbr>are right for you.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>n closing, this thread should give you all the tools you <wbr class="w480 w960"></wbr>need to:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>P</span>lease read through all of the material above before <wbr class="w480 w960"></wbr>asking any questions. Asking a <wbr class="w481 w961 w1799"></wbr>specific question like &#x201C;How <wbr class="w480 w960"></wbr>much <wbr class="w1800"></wbr>should I earn as a lab technician with 4 years <wbr class="w480 w481 w960 w961 w1799"></wbr>experience at Roche?&#x201D; is unlikely to get an answer any <wbr class="w480 w960"></wbr>more specific <wbr class="w1800"></wbr>than what you <wbr class="w481 w961"></wbr>can <wbr class="w1799"></wbr>determine for yourself <wbr class="w480 w960"></wbr>with the tools here, and questions like &#x201C;I&#x2019;ve just been <wbr class="w480 w481 w960 w961"></wbr>offered a <wbr class="w1799"></wbr>salary of <wbr class="w1800"></wbr>CHF100&#x2019;000 in Zurich &#x2013; can I live on <wbr class="w480 w960"></wbr>this?&#x201D; will get similarly unhelpful <wbr class="w481 w961"></wbr>answers, <wbr class="w1799"></wbr>because the <wbr class="w480 w960"></wbr>answer is, &#x201C;it depends on <wbr class="w1800"></wbr>what you consider living.&#x201D;</p></div><ul kind="data" index="list" class="medium medium_list medium_data data list vfld-trailer data list" specificity="0.25" itemprop="list" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-d-list"><ul><li><p>Determine the approximate salary for your industry / job</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Figure out how much of that salary you&#x2019;ll take home</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Understand what taxes and other costs you&#x2019;ll have to <wbr class="w480 w960"></wbr>pay</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Estimate your cost-of-living</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Decide whether you can live the lifestyle you want in <wbr class="w480 w960"></wbr>Switzerland</p></li></ul></ul></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i last_chapter w_decoration w_paragraph w_text w_medium_paragraph w_medium_text stack textual" itemid="2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88" itemtype="text" diff_index="2" index="textual" kind="stack" score="2.5" missed="0.5" tag="article" id="u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88"><div kind="group" index="textual" class="group textual group textual" id="u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual"><div kind="text" index="paragraph" class="text-decoration medium medium_paragraph medium_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual-t-paragraph"><p><span class="first-letter">O</span>nce you&#x2019;ve gone through all of the material here, if you <wbr class="w480 w960"></wbr>still have a question, </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>.</span> If that doesn&#x2019;t get you the answer you need, post it (on a <wbr class="w480 w960"></wbr>new thread, not this one) <wbr class="w481 w961"></wbr>and <wbr class="w1799"></wbr>the friendly members of <wbr class="w480 w960"></wbr>this <wbr class="w1800"></wbr>forum will help out if they can.</p></div></div></article><article subject="panel" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_none stack_h_align_center collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_decoration w_headline w_title w_short_headline w_short_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline"><a class="text-decoration" href="../rss.xml" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline-a">Switzerlanded feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="article" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_long_paragraph w_long_text w_list w_data w_medium_list w_medium_data w_medium_paragraph w_medium_text layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i first_layout last_layout article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3-l-one"></div><style id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-color">body{background-color: rgba(255, 56, 26, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="article" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_long_paragraph w_long_text w_list w_data w_medium_list w_medium_data w_medium_paragraph w_medium_text layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i first_layout last_layout article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3-l-one"></div><style id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-color">body{background-color: rgba(255, 56, 26, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+}</style></head><body><div class="layout-system rust mobile" id="page-fac2a942-b6c7-4c55-a12d-189cf7c07f07"><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="article" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_long_paragraph w_long_text w_list w_data w_medium_list w_medium_data w_medium_paragraph w_medium_text layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i first_layout last_layout article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-mobile-l-one-3-l-one"></div><style id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-color">body{background-color: rgba(255, 56, 26, 1)}</style></section><article subject="panel" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_decoration w_headline w_title w_short_headline w_short_title stack heading" itemid="u-page-nav" itemtype="nav" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav"><div kind="group" index="heading" class="group heading group heading" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline"><a class="text-decoration" href="../index.html" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-nav-g-heading-t-headline-a">Switzerlanded</a></h1></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_large chapter stack textual i first_chapter w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="6a5f9573-a45c-408d-adb7-7d668a96f006" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.5" missed="0.5" tag="article" id="u-6a5f9573-a45c-408d-adb7-7d668a96f006"><div kind="group" index="textual" class="group textual group textual" id="u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-6a5f9573-a45c-408d-adb7-7d668a96f006-g-textual-t-paragraph"><p><span class="first-letter">H</span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>ow much should you be paid in Switzerland? This is <wbr class="w480 w960"></wbr>often a tough question to <wbr class="w481 w961 w1799"></wbr>answer, because the <wbr class="w480 w960"></wbr>Swiss are <wbr class="w1800"></wbr>notoriously secretive about their salaries. <wbr class="w480 w960"></wbr>Unlike <wbr class="w481 w961 w1799"></wbr>many countries, salary ranges or bands are rarely <wbr class="w480 w960"></wbr>published in <wbr class="w1800"></wbr>job adverts. For many <wbr class="w481 w961 w1799"></wbr>people, this means <wbr class="w480 w960"></wbr>that finding a comparable salary is difficult.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>L</span>ots of people have come to the English Forum to ask <wbr class="w480 w960"></wbr>about salaries. It&#x2019;s very hard to <wbr class="w481 w961 w1799"></wbr>give specific answers, <wbr class="w480 w960"></wbr>because <wbr class="w1800"></wbr>every candidate is different. Even for the same <wbr class="w480 w960"></wbr>job, <wbr class="w481 w961 w1799"></wbr>different salaries may be offered to different <wbr class="w480 w960"></wbr>candidates because <wbr class="w1800"></wbr>they are more/less <wbr class="w481 w961 w1799"></wbr>advanced in their <wbr class="w480 w960"></wbr>careers and may bring different qualities to the job. <wbr class="w480 w960"></wbr>When reading <wbr class="w481 w961"></wbr>this <wbr class="w1799"></wbr>guide, <wbr class="w1800"></wbr>bear in mind that these are <wbr class="w480 w960"></wbr>only broad estimates and that you&#x2019;ll need to <wbr class="w481 w961"></wbr>think <wbr class="w1799"></wbr>about <wbr class="w480 w960"></wbr>your own individual <wbr class="w1800"></wbr>circumstances when determining <wbr class="w480 w960"></wbr>your market worth <wbr class="w481 w961"></wbr>and <wbr class="w1799"></wbr>whether a salary is &#x2018;fair&#x2019; or not.</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_list w_data w_long_paragraph w_long_text w_medium_list w_medium_data stack textual" itemid="cb5db9b2-08ce-4818-a8db-33c09e535aad" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.625" missed="0.375" tag="article" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad"><div kind="group" index="textual" class="group textual group textual" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader text paragraph" specificity="0.25" itemprop="text" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-t-paragraph"><p><span class="first-letter">T</span>here are a number of guidelines published that can give <wbr class="w480 w960"></wbr>you a good feeling for <wbr class="w481 w961"></wbr>overall <wbr class="w1799"></wbr>salaries in Switzerland, and <wbr class="w480 w960 w1800"></wbr>that can help you figure out where you sit.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>H</span>ere is the </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>.</span> The personal wages &#x2018;Salarium&#x2019; is an interactive <wbr class="w480 w960"></wbr>application which allows you to <wbr class="w481 w961"></wbr>obtain <wbr class="w1799"></wbr>for a specific job <wbr class="w480 w960"></wbr>(economic <wbr class="w1800"></wbr>branch, region etc) and for a selection of <wbr class="w480 w960"></wbr>individual <wbr class="w481 w961 w1799"></wbr>characteristics (age, level of education etc.) the <wbr class="w480 w960"></wbr>following salary <wbr class="w1800"></wbr>information: </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>T</span>here is not an exact salary guide for every imaginable <wbr class="w480 w960"></wbr>position, so you may need to <wbr class="w481 w961"></wbr>use <wbr class="w1799"></wbr>these figures to get a <wbr class="w480 w960"></wbr>feeling <wbr class="w1800"></wbr>for salaries overall, then extrapolate to figure out <wbr class="w480 w481 w960 w961"></wbr>where <wbr class="w1799"></wbr>your salary would fit in on the overall scale.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>A</span>s a rule, though, Swiss salaries are generous when <wbr class="w480 w960"></wbr>compared against other <wbr class="w481 w961"></wbr>countries, <wbr class="w1799"></wbr>so you are unlikely to <wbr class="w480 w960"></wbr>find <wbr class="w1800"></wbr>yourself moving to a Swiss position for less <wbr class="w481 w961"></wbr>money <wbr class="w480 w960"></wbr>than <wbr class="w1799"></wbr>you&#x2019;re getting currently.</p></div><ul kind="data" index="list" class="medium medium_list medium_data data list vfld-trailer data list" specificity="0.25" itemprop="list" id="u-cb5db9b2-08ce-4818-a8db-33c09e535aad-g-textual-d-list"><li>the gross monthly salary (middle or median value)</li><li><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>the salary dispersion (interquartile range)</li><li><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>factors influencing the salary (table of salary variations <wbr class="w480 w960"></wbr>by region, level of education <wbr class="w481 w961 w1799"></wbr>etc.)</li><li><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>comparison with personal salary data (total salary <wbr class="w480 w960"></wbr>based on the same salary <wbr class="w481 w961 w1799"></wbr>components as the median <wbr class="w480 w960"></wbr>salary)</li></ul></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="57055c75-5257-465e-b77a-6613405f1940" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.5" missed="0.5" tag="article" id="u-57055c75-5257-465e-b77a-6613405f1940"><div kind="group" index="textual" class="group textual group textual" id="u-57055c75-5257-465e-b77a-6613405f1940-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-57055c75-5257-465e-b77a-6613405f1940-g-textual-t-paragraph"><p><span class="first-letter">M</span>any people relocating to Switzerland come to work with <wbr class="w480 w960"></wbr>the big pharma companies <wbr class="w481 w961"></wbr>in <wbr class="w1799"></wbr>Basel or the banks in <wbr class="w480 w960"></wbr>Zurich. <wbr class="w1800"></wbr>There have been many threads about salaries in <wbr class="w480 w960"></wbr>both <wbr class="w481 w961"></wbr>of <wbr class="w1799"></wbr>these environments:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>J</span>ust as important as negotiating a good salary is knowing <wbr class="w480 w960"></wbr>how much of that salary will <wbr class="w481 w961 w1799"></wbr>end up in your pocket at the <wbr class="w480 w960 w1800"></wbr>end of the month. There are several on-line resources <wbr class="w480 w481 w960 w961"></wbr>that <wbr class="w1799"></wbr>can help you estimate how much tax you&#x2019;ll pay (it <wbr class="w480 w960"></wbr>varies <wbr class="w1800"></wbr>depending on which <wbr class="w481 w961"></wbr>canton <wbr class="w1799"></wbr>you live in) as well as <wbr class="w480 w960"></wbr>other deductions that will be taken from your pay.</p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>(Note: this looks like it is now restricted to Accurity <wbr class="w480 w960"></wbr>customers only)</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>N</span>ote that as a foreigner, you&#x2019;ll pay your tax by </p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="de18b004-3b59-407f-aba3-e5f36f02c51a" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.5" missed="0.5" tag="article" id="u-de18b004-3b59-407f-aba3-e5f36f02c51a"><div kind="group" index="textual" class="group textual group textual" id="u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-de18b004-3b59-407f-aba3-e5f36f02c51a-g-textual-t-paragraph"><p><span class="first-letter">,</span> which means your tax payments will be withheld from <wbr class="w480 w960"></wbr>your paycheque each month. <wbr class="w481 w961"></wbr>In <wbr class="w1799"></wbr>Switzerland, nothing is <wbr class="w480 w960"></wbr>ever <wbr class="w1800"></wbr>straightforward as laws vary from canton to canton, <wbr class="w480 w481 w960 w961"></wbr>but in <wbr class="w1799"></wbr>general, if you earn less than CHF120&#x2019;000 a year, <wbr class="w480 w960"></wbr>you&#x2019;ll <wbr class="w1800"></wbr>pay your tax by <wbr class="w481 w961"></wbr>quellensteuer <wbr class="w1799"></wbr>and need to do <wbr class="w480 w960"></wbr>nothing further. If you earn more than CHF120&#x2019;000 a <wbr class="w480 w481 w960 w961"></wbr>year, you&#x2019;ll still <wbr class="w1800"></wbr>pay <wbr class="w1799"></wbr>your tax by quellensteuer, but you&#x2019;ll <wbr class="w480 w960"></wbr>also need to file a tax return <wbr class="w481 w961"></wbr>at the end of the year. <wbr class="w1799"></wbr>If <wbr class="w480 w960"></wbr>there&#x2019;s a balance owing <wbr class="w1800"></wbr>either way, you&#x2019;ll either need to <wbr class="w480 w960"></wbr>pay it <wbr class="w481 w961"></wbr>or claim a tax refund.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Y</span>ou can find your Quellensteuer rates here:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>n addition to the tax that is withheld, there are <wbr class="w480 w960"></wbr>numerous other charges that will <wbr class="w481 w961"></wbr>come <wbr class="w1799"></wbr>out of your pay.</p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Here is a sample payslip:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>M</span>onthly Employee Deductions ItemBase Rate Deduction <wbr class="w480 w960"></wbr>State Pension <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>(AHV)________________6'500.00_________5.05%_____CH F <wbr class="w480 w960"></wbr>328.25</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="f681090d-e278-4ed8-af68-58ac1f941197" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.5" missed="0.5" tag="article" id="u-f681090d-e278-4ed8-af68-58ac1f941197"><div kind="group" index="textual" class="group textual group textual" id="u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-f681090d-e278-4ed8-af68-58ac1f941197-g-textual-t-paragraph"><p><span class="first-letter">U</span>nemployment <wbr class="w480 w960"></wbr>(ALV)_____________________________________________ <wbr class="w480 w960"></wbr>_________________ <wbr class="w481 w961 w1799 w1800"></wbr>6'500.00__________1.0%______CHF 65.00</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>C</span>ompany Pension <wbr class="w480 w960"></wbr>(BVG)_____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>_______________4'505.00____________________CHF 243.95</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>A</span>ccident Insurance <wbr class="w480 w960"></wbr>(UVG)_____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>______________6'500.00________0.76%______CHF 49.40</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>S</span>ickpay Insurance <wbr class="w480 w960"></wbr>(KTG)_____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>_______________6'500.00________1.07%______CHF 69.55</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>ncome tax at <wbr class="w480 w960"></wbr>source____________________________________________ <wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>___________________6'500.00_______13.56%______CHF 881.40</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>N</span>et Monthly <wbr class="w480 w960"></wbr>Salary____________________________________________ <wbr class="w480 w481 w960 w961 w1799"></wbr>_____________________________________________</p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Here are some more threads that explain the various <wbr class="w480 w960"></wbr>charges on your payslip:</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="47c88661-1db7-4caa-8371-3ec950f64d8b" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.5" missed="0.5" tag="article" id="u-47c88661-1db7-4caa-8371-3ec950f64d8b"><div kind="group" index="textual" class="group textual group textual" id="u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-47c88661-1db7-4caa-8371-3ec950f64d8b-g-textual-t-paragraph"><p><span class="first-letter">F</span>or most expats working in Switzerland, the only tax <wbr class="w480 w960"></wbr>you&#x2019;ll end up paying as a full-time <wbr class="w481 w961 w1799"></wbr>resident in Switzerland <wbr class="w480 w960"></wbr>is <wbr class="w1800"></wbr>Swiss tax. Americans, on the other hand, remain liable <wbr class="w480 w960"></wbr>for <wbr class="w481 w961"></wbr>US <wbr class="w1799"></wbr>tax regardless of where they live in the world. Be <wbr class="w480 w960"></wbr>sure <wbr class="w1800"></wbr>to calculate the impact of US <wbr class="w481 w961 w1799"></wbr>taxes on your take-<wbr class="w480 w960"></wbr>home pay. The best guide for understanding US taxation <wbr class="w480 w960"></wbr>of <wbr class="w481 w961 w1799"></wbr>American <wbr class="w1800"></wbr>expats is here:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>W</span>hen evaluating your package, you also need to <wbr class="w480 w960"></wbr>consider any other benefits you are <wbr class="w481 w961 w1799"></wbr>being offered. Many <wbr class="w480 w960"></wbr>of the <wbr class="w1800"></wbr>bigger companies in Switzerland will provide you <wbr class="w480 w960"></wbr>with <wbr class="w481 w961 w1799"></wbr>relocation assistance, including temporary housing, <wbr class="w480 w960"></wbr>moving <wbr class="w1800"></wbr>expenses, language <wbr class="w481 w961 w1799"></wbr>training. For candidates at <wbr class="w480 w960"></wbr>senior management levels, you may also find that you&#x2019;re <wbr class="w480 w481 w960 w961 w1799"></wbr>offered <wbr class="w1800"></wbr>schooling for your children at one of the <wbr class="w480 w960"></wbr>international schools.</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_long_paragraph w_long_text stack textual" itemid="a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.5" missed="0.5" tag="article" id="u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6"><div kind="group" index="textual" class="group textual group textual" id="u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-a6c480a0-ca4e-4fd2-bb18-084e3cbd9ed6-g-textual-t-paragraph"><p><span class="first-letter">O</span>nce you&#x2019;ve figured out what a reasonable salary is for <wbr class="w480 w960"></wbr>your role, education, and <wbr class="w481 w961 w1799"></wbr>experience, and once you&#x2019;ve <wbr class="w480 w960 w1800"></wbr>worked out how much of that salary you&#x2019;ll be taking <wbr class="w480 w481 w960 w961"></wbr>home <wbr class="w1799"></wbr>after you&#x2019;ve paid your taxes, it&#x2019;s time to decide <wbr class="w480 w960"></wbr>whether <wbr class="w1800"></wbr>you&#x2019;ll have enough to <wbr class="w481 w961"></wbr>live on.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>A</span>s a starting point, the </p><p><span class="first-letter"> </span><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>is CHF109,236. So you can base your initial assumptions <wbr class="w480 w960"></wbr>on that. </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>T</span>here are countless threads about the cost of living in <wbr class="w480 w960"></wbr>Switzerland, but it basically <wbr class="w481 w961"></wbr>boils <wbr class="w1799"></wbr>down to this: &#x201C;It <wbr class="w480 w960"></wbr>depends.&#x201D;</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>t&#x2019;s very difficult to make direct comparisons about cost-<wbr class="w480 w960"></wbr>of-living. If you&#x2019;re coming <wbr class="w481 w961"></wbr>from <wbr class="w1799"></wbr>a 3&#x2019;000sq ft house in <wbr class="w480 w960"></wbr>Texas, <wbr class="w1800"></wbr>you&#x2019;re unlikely to be able to afford something <wbr class="w480 w960"></wbr>similar <wbr class="w481 w961"></wbr>in <wbr class="w1799"></wbr>Switzerland, because very few people have a <wbr class="w480 w960"></wbr>3&#x2019;000 sq ft <wbr class="w1800"></wbr>home.</p></div></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i w_decoration w_paragraph w_text w_list w_data w_long_paragraph w_long_text w_medium_list w_medium_data stack textual" itemid="39ec17a3-b16c-4fa8-a4f0-63d15db067cd" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.625" missed="0.375" tag="article" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd"><div kind="group" index="textual" class="group textual group textual" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual"><div kind="text" index="paragraph" class="text-decoration long long_paragraph long_text text paragraph vfld-leader text paragraph" specificity="0.25" itemprop="text" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-t-paragraph"><p><span class="first-letter">A</span> better question to ask yourself is &#x201C;could my salary buy <wbr class="w480 w960"></wbr>the sort of lifestyle I would <wbr class="w481 w961"></wbr>like <wbr class="w1799"></wbr>to live while living in <wbr class="w480 w960 w1800"></wbr>Switzerland, even if that&#x2019;s very different from what I&#x2019;m <wbr class="w480 w960"></wbr>living <wbr class="w481 w961 w1799"></wbr>today?&#x201D; Life is always a series of trade-offs, and <wbr class="w480 w960"></wbr>you&#x2019;ll <wbr class="w1800"></wbr>need to decide which trade-offs <wbr class="w481 w961 w1799"></wbr>are right for you.</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>I</span>n closing, this thread should give you all the tools you <wbr class="w480 w960"></wbr>need to:</p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>P</span>lease read through all of the material above before <wbr class="w480 w960"></wbr>asking any questions. Asking a <wbr class="w481 w961 w1799"></wbr>specific question like &#x201C;How <wbr class="w480 w960"></wbr>much <wbr class="w1800"></wbr>should I earn as a lab technician with 4 years <wbr class="w480 w481 w960 w961 w1799"></wbr>experience at Roche?&#x201D; is unlikely to get an answer any <wbr class="w480 w960"></wbr>more specific <wbr class="w1800"></wbr>than what you <wbr class="w481 w961"></wbr>can <wbr class="w1799"></wbr>determine for yourself <wbr class="w480 w960"></wbr>with the tools here, and questions like &#x201C;I&#x2019;ve just been <wbr class="w480 w481 w960 w961"></wbr>offered a <wbr class="w1799"></wbr>salary of <wbr class="w1800"></wbr>CHF100&#x2019;000 in Zurich &#x2013; can I live on <wbr class="w480 w960"></wbr>this?&#x201D; will get similarly unhelpful <wbr class="w481 w961"></wbr>answers, <wbr class="w1799"></wbr>because the <wbr class="w480 w960"></wbr>answer is, &#x201C;it depends on <wbr class="w1800"></wbr>what you consider living.&#x201D;</p></div><ul kind="data" index="list" class="medium medium_list medium_data data list vfld-trailer data list" specificity="0.25" itemprop="list" id="u-39ec17a3-b16c-4fa8-a4f0-63d15db067cd-g-textual-d-list"><li><p>Determine the approximate salary for your industry / <wbr class="w480 w960"></wbr>job</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Figure out how much of that salary you&#x2019;ll take home</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Understand what taxes and other costs you&#x2019;ll have to <wbr class="w480 w960"></wbr>pay</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Estimate your cost-of-living</p></li><li><p><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>Decide whether you can live the lifestyle you want in <wbr class="w480 w960"></wbr>Switzerland</p></li></ul></div></article><article subject="chapter" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_stretch collapsed full line_padding_aside_inside text_width_wider group_h_align_center text_align_left flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_article chapter stack textual i last_chapter w_decoration w_paragraph w_text w_medium_paragraph w_medium_text stack textual" itemid="2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88" itemtype="text" diff_index="2" index="textual" kind="stack" score="0.5" missed="0.5" tag="article" id="u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88"><div kind="group" index="textual" class="group textual group textual" id="u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual"><div kind="text" index="paragraph" class="text-decoration medium medium_paragraph medium_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-2b1b07b4-09d9-49bd-b22c-0b0c1d0a4a88-g-textual-t-paragraph"><p><span class="first-letter">O</span>nce you&#x2019;ve gone through all of the material here, if you <wbr class="w480 w960"></wbr>still have a question, </p><p><span class="first-letter"><wbr class="w480 w481 w960 w961 w1799 w1800"></wbr>.</span> If that doesn&#x2019;t get you the answer you need, post it (on a <wbr class="w480 w960"></wbr>new thread, not this one) <wbr class="w481 w961"></wbr>and <wbr class="w1799"></wbr>the friendly members of <wbr class="w480 w960"></wbr>this <wbr class="w1800"></wbr>forum will help out if they can.</p></div></div></article><article subject="panel" class="col-1 export-linebreaks uninverted vertical not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_decoration w_headline w_title w_short_headline w_short_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline"><a class="text-decoration" href="../rss.xml" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-alternate-g-heading-t-headline-a">Switzerlanded feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="article" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_long_paragraph w_long_text w_list w_data w_medium_list w_medium_data w_medium_paragraph w_medium_text layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i first_layout last_layout article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-desktop-l-one-3-l-one"></div><style id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-color">body{background-color: rgba(255, 56, 26, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="article" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_long_paragraph w_long_text w_list w_data w_medium_list w_medium_data w_medium_paragraph w_medium_text layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts colors-use-same-as-previous layout one i first_layout last_layout article layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-cinema-l-one-3-l-one"></div><style id="u-fac2a942-b6c7-4c55-a12d-189cf7c07f07-color">body{background-color: rgba(255, 56, 26, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*! Hammer.JS - v1.1.3 - 2014-05-20
  * http://eightmedia.github.io/hammer.js
  *
@@ -1901,7 +1907,9 @@ setMargin = function(element, value, velocity) {
 setHamburger(findHamburger());
 
 window.addEventListener('resize', function() {
-  return setHamburger(findHamburger());
+  return setTimeout(function() {
+    return setHamburger(findHamburger());
+  }, 10);
 });
 
 window.addEventListener('scroll', function() {
@@ -2123,9 +2131,11 @@ global.Hamburger = require('./hamburger');
 
 global.Highlighter = require('./highlighter');
 
+global.Player = require('./player');
+
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
+},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"./player":8,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
 var appendPage, mainpage, page, ref, ref1, urls;
 
 page = require('./reflow');
@@ -2226,7 +2236,192 @@ module.exports = function() {
 };
 
 
-},{"./reflow":8}],8:[function(require,module,exports){
+},{"./reflow":9}],8:[function(require,module,exports){
+var Player, Youtube, iframe, revealed, rgb2hex;
+
+iframe = null;
+
+Youtube = null;
+
+Player = function(id, src, width, height, color, bg) {
+  if (src.indexOf('youtube') > -1) {
+    src += '&color=white&theme=light&modestbranding=1';
+  }
+  src = src.replace('COLOR', color).replace('BG', bg);
+  if (location.protocol !== 'https:') {
+    src = src.replace('https:', 'http:');
+  }
+  iframe = document.createElement('iframe');
+  iframe.id = id;
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.src = src;
+  iframe.width = width;
+  iframe.height = height;
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.left = 0;
+  iframe.style.right = 0;
+  iframe.style.position = 'absolute';
+  iframe.style.opacity = 0.2;
+  iframe.onload = function() {
+    return iframe.style.opacity = 1;
+  };
+  return iframe;
+};
+
+revealed = null;
+
+Player.reveal = function(iframe) {
+  var diff, i, left, len, parent, play, ref, ref1, sibling, target, top, translateX, translateY;
+  while (target = (target || iframe).parentNode) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (target.parentNode.classList.contains('group')) {
+        parent = target.parentNode;
+      } else {
+        parent = target;
+      }
+      revealed = iframe;
+      play = parent.getElementsByClassName('play')[0];
+      left = target.offsetWidth - play.offsetLeft - play.offsetWidth;
+      top = -play.offsetTop;
+      play.style.webkitTransformOrigin = 'top right';
+      play.style.webkitTransform = 'translateX(' + left + 'px) translateY(' + top + 'px) scale(0.5)';
+      target.classList.add('revealed');
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        if (sibling.nodeType === 1 && sibling !== parent) {
+          translateX = translateY = null;
+          if ((diff = sibling.offsetLeft + sibling.offsetWidth - parent.offsetLeft) > 2 && parent.offsetLeft >= sibling.offsetLeft) {
+            translateX = -diff;
+          }
+          if ((diff = target.offsetLeft + target.offsetWidth - sibling.offsetLeft) > 2 && parent.offsetLeft <= sibling.offsetLeft) {
+            if (!translateX || Math.abs(diff) < Math.abs(translateX)) {
+              translateX = diff;
+            }
+          }
+          if ((diff = sibling.offsetTop + sibling.offsetHeight - parent.offsetTop) > 2 && parent.offsetTop >= sibling.offsetTop) {
+            translateY = -diff;
+          }
+          if ((diff = target.offsetTop + target.offsetHeight - sibling.offsetTop) > 2 && parent.offsetTop <= sibling.offsetTop) {
+            if (!translateY || Math.abs(diff) < Math.abs(translateY)) {
+              translateY = diff;
+            }
+          }
+          if (Math.abs(translateX) > Math.abs(translateY)) {
+            sibling.style.webkitTransform = 'translateY(' + translateY + 'px)';
+          } else {
+            sibling.style.webkitTransform = 'translateX(' + translateX + 'px)';
+          }
+          console.log(translateX, translateY, sibling);
+        }
+      }
+    }
+  }
+};
+
+Player.hide = function(iframe) {
+  var i, len, parent, play, ref, ref1, sibling;
+  while (parent = (parent || iframe).parentNode) {
+    if ((ref = parent.classList) != null ? ref.contains('revealed') : void 0) {
+      parent.classList.remove('revealed');
+      if (parent.parentNode.classList.contains('group')) {
+        parent = parent.parentNode;
+      }
+      play = parent.getElementsByClassName('play')[0];
+      play.style.webkitTransform = '';
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        sibling.style.webkitTransform = '';
+      }
+    }
+  }
+  return revealed = null;
+};
+
+window.addEventListener('resize', function() {
+  return setTimeout(function() {
+    return requestAnimationFrame(function() {
+      if (revealed) {
+        if (revealed.offsetWidth) {
+          return Player.reveal(revealed);
+        } else {
+          return Player.stop(revealed);
+        }
+      }
+    });
+  }, 10);
+});
+
+Player.stop = function(iframe) {
+  var old;
+  old = iframe;
+  iframe.style.opacity = 0;
+  setTimeout(function() {
+    var ref;
+    return (ref = old.parentNode) != null ? ref.removeChild(old) : void 0;
+  }, 300);
+  Player.hide(iframe);
+  return iframe = null;
+};
+
+document.addEventListener('click', function(e) {
+  var bg, color, header, parent, play, ref, ref1, results, styles, target;
+  target = e.target;
+  results = [];
+  while (target) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (play = target.getElementsByClassName('play')[0]) {
+        if ((iframe != null ? iframe.parentNode : void 0) === target) {
+          Player.stop(iframe);
+        } else {
+          if (iframe) {
+            Player.stop(iframe);
+          }
+          color = bg = null;
+          header = (ref1 = target.parentNode.parentNode.getElementsByClassName('title')[0]) != null ? ref1.firstChild : void 0;
+          parent = header || play;
+          while (parent) {
+            if (parent.nodeType === 1) {
+              styles = window.getComputedStyle(parent);
+              if (styles.color.indexOf('rgba') === -1 || !styles.color.match(/,\s*0\)/)) {
+                if (color == null) {
+                  color = styles.color;
+                }
+              }
+              if (styles['background-color'].indexOf('rgba') === -1 || !styles['background-color'].match(/,\s*0\)/)) {
+                if (bg == null) {
+                  bg = styles['background-color'];
+                }
+              }
+            }
+            parent = parent.parentNode;
+          }
+          iframe = Player(play.id + '-player', play.getAttribute('data-src'), play.getAttribute('data-width'), play.getAttribute('data-height'), rgb2hex(color), rgb2hex(bg));
+          target.appendChild(iframe);
+          Player.reveal(iframe);
+        }
+        e.preventDefault();
+        break;
+      }
+    }
+    results.push(target = target.parentNode);
+  }
+  return results;
+});
+
+rgb2hex = function(rgb) {
+  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+  if (rgb && rgb.length === 4) {
+    return ("0" + parseInt(rgb[1], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3], 10).toString(16)).slice(-2);
+  }
+};
+
+window.exports = window.Player = Player;
+
+
+},{}],9:[function(require,module,exports){
 module.exports = {
   reflow: function(container) {
     var counter, heights, hidden, hole, holed, holes, i, id, ids, index, j, k, l, last, layout, layouts, len, len1, len2, len3, m, mutations, name, node, ref, ref1, ref2, stack, stacks;
@@ -2491,7 +2686,7 @@ module.exports = function(callback) {
   } else {
     protocol = '';
   }
-  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.4/gss.document.parser.js";
+  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.8/gss.document.parser.js";
   if (location.toString().indexOf('//localhost:8080') > -1) {
     return module.exports.load(protocol + "//localhost:8080/node_modules/gss-document/dist/gss.document.parser.js", callback, function() {
       return module.exports.load(url, callback);
